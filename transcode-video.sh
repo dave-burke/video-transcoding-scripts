@@ -37,6 +37,7 @@ usage() {
     --mkv           output Matroska format instead of MP4
     --big           raise default limits for both video and AC-3 audio bitrates
                         (always increases output size)
+    --small         lower default limits for both video and AC-3 audio bitrates
     --fast, --faster, --veryfast
                     use x264 encoder preset to trade quality for speed
                         (mitigate quality loss by combining with \`--big\`)
@@ -78,6 +79,7 @@ Output options:
 Quality options:
     --big           raise default limits for both video and AC-3 audio bitrates
                         (always increases output size)
+    --small         lower default limits for both video and AC-3 audio bitrates
     --fast, --faster, --veryfast
                     use x264 encoder preset to trade quality for speed
                         (mitigate quality loss by combining with \`--big\`)
@@ -294,6 +296,13 @@ while [ "$1" ]; do
             default_max_bitrate_720p='6000'
             default_max_bitrate_480p='3000'
             ac3_bitrate='640'
+            ;;
+        --small)
+            default_max_bitrate_2160p='5000'
+            default_max_bitrate_1080p='3000'
+            default_max_bitrate_720p='2000'
+            default_max_bitrate_480p='1500'
+            ac3_bitrate='256'
             ;;
         --crop)
             crop_values="$2"
