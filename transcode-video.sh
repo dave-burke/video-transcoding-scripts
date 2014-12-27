@@ -666,7 +666,7 @@ elif [ -f "$input" ]; then
         # Calculate total bitrate from file size in bits divided by video
         # duration in seconds.
         #
-        bitrate="$((($(stat -L -f %z "$input") * 8) / ((duration_array[0] * 60 * 60) + (duration_array[1] * 60) + duration_array[2])))"
+        bitrate="$((($(stat -L -c %s "$input") * 8) / ((duration_array[0] * 60 * 60) + (duration_array[1] * 60) + duration_array[2])))"
 
         if [ "$bitrate" ]; then
             # Convert to kbps and round to nearest thousand.
