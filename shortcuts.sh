@@ -16,11 +16,11 @@ case $1 in
 		shift
 		;;
 	--bsg)
-		ARGS="--small --tune film --filter nlmeans=light --filter nlmeans-tune=highmotion"
+		ARGS+="--small --tune film --filter nlmeans=light --filter nlmeans-tune=highmotion"
 		shift
 		;;
 	*)
-		ARGS="--small"
+		ARGS+="--small --tune film --filter nlmeans=light --filter nlmeans-tune=film"
 		#don't shift, $1 is still relevant
 		;;
 esac
