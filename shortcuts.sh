@@ -4,7 +4,7 @@ COMMAND="transcode-video.sh"
 
 case $1 in
 	--animation)
-		ARGS="--small --tune animation --filter denoise=medium"
+		ARGS="--small --tune animation --filter nlmeans=medium --filter nlmeans-tune=animation"
 		shift
 		;;
 	--film)
