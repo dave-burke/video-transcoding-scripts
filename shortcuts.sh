@@ -19,10 +19,6 @@ case $1 in
 		ARGS="--small --tune film --filter nlmeans=light --filter nlmeans-tune=highmotion"
 		shift
 		;;
-	--sw)
-		ARGS="--crop 58:58:0:0 --tune film"
-		shift
-		;;
 	*)
 		ARGS="--small"
 		#don't shift, $1 is still relevant
