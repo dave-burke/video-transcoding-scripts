@@ -7,26 +7,27 @@ else
 fi
 
 COMMAND="${dir}/transcode-video.sh"
+ARGS="--small --filter decomb "
 
 case $1 in
 	--animation)
-		ARGS="--small --tune animation --filter nlmeans=medium --filter nlmeans-tune=animation"
+		ARGS+="--tune animation --filter nlmeans=medium --filter nlmeans-tune=animation"
 		shift
 		;;
 	--film)
-		ARGS="--small --tune film"
+		ARGS+="--tune film"
 		shift
 		;;
 	--grain)
-		ARGS="--small --tune grain --filter nlmeans=light --filter nlmeans-tune=grain"
+		ARGS+="--tune grain --filter nlmeans=light --filter nlmeans-tune=grain"
 		shift
 		;;
 	--bsg)
-		ARGS+="--small --tune film --filter nlmeans=light --filter nlmeans-tune=highmotion"
+		ARGS+="--tune film --filter nlmeans=light --filter nlmeans-tune=highmotion"
 		shift
 		;;
 	*)
-		ARGS+="--small --tune film --filter nlmeans=light --filter nlmeans-tune=film"
+		ARGS+="--tune film --filter nlmeans=light --filter nlmeans-tune=film"
 		#don't shift, $1 is still relevant
 		;;
 esac
