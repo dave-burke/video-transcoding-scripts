@@ -1,6 +1,12 @@
 #!/bin/bash
 
-COMMAND="transcode-video.sh"
+if command -v realpath > /dev/null; then
+	dir=$(dirname $(realpath ${0}))
+else
+	dir="$(cd $(dirname ${0}); pwd)"
+fi
+
+COMMAND="${dir}/transcode-video.sh"
 
 case $1 in
 	--animation)
