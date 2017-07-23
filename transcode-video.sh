@@ -218,7 +218,7 @@ esac
 media_title='1'
 section_options=''
 container_format='mp4'
-container_format_options='--large-file'
+container_format_options=''
 default_max_bitrate_2160p='10000'
 default_max_bitrate_1080p='5000'
 default_max_bitrate_720p='4000'
@@ -274,7 +274,7 @@ while [ "$1" ]; do
             ;;
         --m4v)
             container_format='m4v'
-            container_format_options='--large-file'
+            container_format_options=''
             ;;
         --output)
             output="$2"
@@ -634,7 +634,7 @@ if ((($width > $constrain_width)) || (($height > $constrain_height))); then
         height="$adjusted_height"
     fi
 else
-    size_options='--strict-anamorphic'
+    size_options='--auto-anamorphic'
 fi
 
 # Limit `x264` video buffer verifier (VBV) size to values appropriate for
