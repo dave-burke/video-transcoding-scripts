@@ -13,7 +13,7 @@ Types:
     --film      = --tune film --filter nlmeans=light --filter nlmeans-tune=film"
     --grain     = --tune grain --filter nlmeans=light --filter nlmeans-tune=grain"
     --bsg       = --tune film --filter nlmeans=light --filter nlmeans-tune=highmotion"
-    [default]   = --tune film --filter nlmeans=light --filter nlmeans-tune=film"
+    [default]   = --filter nlmeans=light"
 
 Common transcode-video.sh options are:
 
@@ -75,7 +75,7 @@ case $1 in
 		shift
 		;;
 	*)
-		ARGS+="--tune film --filter nlmeans=light --filter nlmeans-tune=film"
+		ARGS+="--filter nlmeans=light"
 		#don't shift, $1 is still relevant
 		;;
 esac
